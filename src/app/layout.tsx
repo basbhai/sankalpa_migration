@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <title>Sankalpa</title>
+        <meta name="description" content="Yours One and only legal services" />
+      </Head>
       <body className={inter.className}>
         <div className="flex flex-col bg-black text-white w-screen h-screen">
           <div className="h-16 fixed w-full bg-black z-50">
