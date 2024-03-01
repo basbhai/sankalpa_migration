@@ -1,6 +1,9 @@
 import React from "react";
 import Hero from "@/Assets/Hero.jpeg";
 import Image from "next/image";
+import { InitativesData } from "@/Data/Data";
+import AnimatedCard from "./utilityComponent/AnimatedCard";
+
 const HomePage = () => {
   return (
     <React.Fragment>
@@ -13,11 +16,11 @@ const HomePage = () => {
         <div className="w-full lg:h-[calc(100vh-4rem)] flex flex-col lg:flex-row bg-gradient-to-br from-green-300 to-yellow-200 mx-4 sm:mx-8 md:mx-12 lg:mx-20 border border-black rounded-md shadow-xl relative  ">
           {/* Image Section */}
           <div className="w-full lg:w-1/2 h-full flex justify-end items-center">
-            <div className="p-14 w-full  ">
+            <div className="p-14 w-full lg:w-[90%]   ">
               <Image
                 src={Hero}
                 alt="Md"
-                className=" lg:rounded-s-full rounded-l-full  shadow-red-800  shadow-2xl border-x-8 border-black"
+                className=" lg:rounded-s-full rounded-l-full  shadow-red-800  shadow-2xl border-x-8 border-black lg:mb-8"
               />
             </div>
           </div>
@@ -56,6 +59,24 @@ const HomePage = () => {
                 className="shape-fill"
               ></path>
             </svg>
+          </div>
+        </div>
+      </div>
+      {/* Initiative section */}
+      <div className="w-full mt-4 bg-white flex items-center justify-center relative">
+        <div className="w-full lg:h-[calc(100vh-4rem) flex flex-col lg:flex-row bg-gradient-to-br from-green-300 to-yellow-200 mx-4 sm:mx-8 md:mx-12 lg:mx-20 border border-black rounded-md shadow-xl relative  ">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-3">
+            {InitativesData.map((data, index) => (
+              <div className="flex items-center" key={index}>
+                <AnimatedCard
+                  src={data.src}
+                  title={data.title}
+                  desc={data.desc}
+                  tags={data.tags}
+                  alt={data.alt}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
