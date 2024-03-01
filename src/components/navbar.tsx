@@ -31,13 +31,13 @@ const Navbar = () => {
     "
     >
       {/* Menu list non-mobile */}
-      <div className="hidden md:flex gap-4 text-xl w-1/3 justify-start">
+      <div className="hidden md:flex  gap-4  xl:text-base w-[40%] justify-start">
         {links.map((link, index) => (
           <NavLink link={link} key={index} />
         ))}
       </div>
       {/* Logo */}
-      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+      <div className="md:hidden lg:flex xl:w-[20%] xl:justify-center">
         <Link href="/">
           <Image
             src={Logo}
@@ -49,7 +49,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* icons */}
-      <div className="hidden md:flex flex-row gap-8 w-1/3 justify-end">
+      <div className="hidden md:flex flex-row gap-8 w-[40%] justify-end">
         <Link href="#">
           <FaFacebook className="text-3xl text-blue-500" />
         </Link>
