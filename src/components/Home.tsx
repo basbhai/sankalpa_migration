@@ -48,7 +48,7 @@ const HomePage = () => {
 
           {/* Book Shape design
           will come from css */}
-          <div className="custom-shape-divider-bottom-1709218051 hidden lg:flex">
+          <div className="custom-shape-divider-bottom-1709218051 hidden lg:flex -z-2">
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
