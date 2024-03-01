@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sankalpa</title>
+        <title>Sankalpa legal Services</title>
         <meta name="description" content="Yours One and only legal services" />
       </Head>
       <main className="flex  flex-col items-center justify-between">
