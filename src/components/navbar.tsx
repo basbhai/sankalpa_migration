@@ -7,6 +7,10 @@ interface Link {
   url: string;
   title: string;
 }
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { SiYoutube } from "react-icons/si";
+import NavLink from "./navLink";
 
 const links: Link[] = [
   { url: "/", title: "Home" },
@@ -23,20 +27,18 @@ const Navbar = () => {
 
   return (
     <div
-      className=" flex w-full h-full  items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 
-     py-4 md:py-5
+      className=" flex w-full h-full  items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 
+     py-4 md:py-8 
     "
     >
       {/* Menu list non-mobile */}
-      <div className="hidden md:flex gap-4 text-xl">
+      <div className="hidden md:flex gap-4 text-xl w-1/3 justify-start">
         {links.map((link, index) => (
-          <Link href={link.url} key={index}>
-            {link.title}
-          </Link>
+          <NavLink link={link} key={index} />
         ))}
       </div>
       {/* Logo */}
-      <div className="md:hidden">
+      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
         <Link href="/">
           <Image
             src={Logo}
@@ -47,11 +49,26 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className=""></div>
+      {/* icons */}
+      <div className="hidden md:flex flex-row gap-8 w-1/3 justify-end">
+        <Link href="#">
+          <FaFacebook className="text-3xl text-blue-500" />
+        </Link>
+        <Link href="#">
+          <FaXTwitter className="text-3xl text-white" />
+        </Link>
+        <Link href="#">
+          <SiYoutube className="text-3xl text-red-600" />
+        </Link>
+        <Link href="#">
+          <FaLinkedin className="text-3xl text-blue-300" />
+        </Link>
+      </div>
       {/* Responsive menu */}
-      <div className="md:hidden">
+      <div className="md:hidden justify-center">
         {/* Menu Button */}
         <button
+          title="toogle button"
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={handleClick}
         >

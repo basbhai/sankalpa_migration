@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="flex flex-col bg-black text-white w-screen h-screen">
-          <div className="h-16 fixed w-full bg-black">
+          <div className="h-16 fixed w-full bg-black z-10">
             <Navbar />
           </div>
           <div className="h-[calc(100vh-4rem)] mt-16">{children}</div>

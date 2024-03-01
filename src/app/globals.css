@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
 .custom-shape-divider-bottom {
   position: absolute;
   bottom: 0;
@@ -43,4 +47,25 @@
 
 .custom-shape-divider-top .shape-fill {
   fill: burlywood;
+}
+
+.custom-shape-divider-bottom-1709218051 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709218051 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 117px;
+}
+
+.custom-shape-divider-bottom-1709218051 .shape-fill {
+  fill: #ffffff;
 }
