@@ -15,7 +15,6 @@ import NavLink from "./navLink";
 const links: Link[] = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
-  { url: "/practiceArea", title: "Practice Area" },
   { url: "/upCommingProject", title: "Upcoming Projects" },
   { url: "/contactUs", title: "Contact Us" },
 ];
