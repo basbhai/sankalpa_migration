@@ -1,6 +1,9 @@
 import React from "react";
+import PracticeArea from "../PracticeArea";
+import PracticeButton from "./PracticeButton";
 
 interface Props {
+  id: number;
   src: string;
   alt: string;
   desc: string;
@@ -8,7 +11,7 @@ interface Props {
   tags?: string[];
 }
 
-const AnimatedCard: React.FC<Props> = ({ src, alt, desc, title, tags }) => {
+const AnimatedCard: React.FC<Props> = ({ id, src, alt, desc, title, tags }) => {
   const truncatedDesc = desc.length > 80 ? `${desc.slice(0, 80)}...` : desc;
   return (
     <div className="card-container h-full flex flex-col justify-between">
@@ -22,7 +25,7 @@ const AnimatedCard: React.FC<Props> = ({ src, alt, desc, title, tags }) => {
           {tags ? (
             tags.map((tag, index) => (
               <span
-                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 lg:w-1/3"
+                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 lg:w-1/4"
                 key={index}
               >
                 {tag}
@@ -30,9 +33,11 @@ const AnimatedCard: React.FC<Props> = ({ src, alt, desc, title, tags }) => {
             ))
           ) : (
             <div className="flex w-full justify-center">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Read More
-              </button>
+              <PracticeButton
+                id={id}
+                desc="Read More"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              />
             </div>
           )}
         </div>

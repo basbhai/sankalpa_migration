@@ -1,4 +1,10 @@
-const navLiElement = [
+interface navList {
+  id: number;
+  name: string;
+  href: string;
+}
+
+const navLiElement: navList[] = [
   {
     id: 1,
     name: "About Us",
@@ -29,8 +35,18 @@ const AboutData = {
   quotes: "The only way to ensure justice is to commit oneself to seeking it.",
 };
 
-const InitativesData = [
+interface initiatives {
+  id: number;
+  title: string;
+  src: string;
+  alt: string;
+  desc: string;
+  tags: string[];
+}
+
+const InitativesData: initiatives[] = [
   {
+    id: 1,
     title: "Free Legal Consultation",
     src: "/photo.avif",
     desc: "Connect with our attorney for free legal consultation",
@@ -38,6 +54,7 @@ const InitativesData = [
     tags: ["Justice", "Law", "Equality"], // Added justice, law, and equality tags
   },
   {
+    id: 2,
     title: "Pro bono Services",
     src: "/photo.avif",
     desc: "We provide pro bono services on a regular basis.",
@@ -45,6 +62,7 @@ const InitativesData = [
     tags: ["Justice", "Law", "Equality"], // Added justice, law, and equality tags
   },
   {
+    id: 3,
     title: "Low Cost legal services",
     src: "/photo.avif",
     desc: "We provide quality service at low cost. Just leave your legal hassle to us",
@@ -53,7 +71,17 @@ const InitativesData = [
   },
 ];
 
-const PracticeAreaData = [
+interface BankingAndFinance {
+  id: number;
+  title: string;
+  src: string;
+  desc: string;
+  alt: string;
+  services: {
+    [key: string]: string;
+  };
+}
+const PracticeAreaData: BankingAndFinance[] = [
   {
     id: 1,
     title: "Banking And Finance",
@@ -347,7 +375,7 @@ const cardVariants = {
     opacity: 0,
     y: -100,
   },
-  whileInView: (index) => ({
+  whileInView: (index: number) => ({
     opacity: 1,
 
     y: 0,

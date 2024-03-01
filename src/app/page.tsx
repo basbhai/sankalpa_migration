@@ -6,10 +6,6 @@ import Head from "next/head";
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Sankalpa legal Services</title>
-        <meta name="description" content="Yours One and only legal services" />
-      </Head>
       <main className="flex  flex-col items-center justify-between">
         <div className="w-full">
           <HomePage />
