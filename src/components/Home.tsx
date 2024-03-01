@@ -38,7 +38,7 @@ const HomePage = () => {
                 commercial, and Public Interest Litigation cases, our firm
                 epitomizes a unique acumen in scrutinizing case details. This
                 expertise enables us to craft and execute decisions and
-                strategies that not only safeguard our clients' interests but
+                strategies that not only safeguard our clients interests but
                 also facilitate the realization of their goals with efficiency
                 and precision.
               </p>
