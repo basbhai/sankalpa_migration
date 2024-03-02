@@ -1,55 +1,98 @@
 "use client";
-import React, { useState } from "react";
+
 import Image from "next/image";
-import Logo from "@/Assets/logo.png";
 import Link from "next/link";
-interface Link {
-  url: string;
-  title: string;
-}
+import { useState } from "react";
+import NavLink from "./navLink";
+import { motion } from "framer-motion";
+import logo from "@/Assets/logo.png";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiYoutube } from "react-icons/si";
-import NavLink from "./navLink";
 
-const links: Link[] = [
+const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
-  { url: "/upCommingProject", title: "Upcoming Projects" },
-  { url: "/contactUs", title: "Contact Us" },
+  { url: "/upCommingProject", title: "Upcomming Projects" },
+  { url: "/contactUs", title: "contact" },
 ];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen(!open);
+
+  const topVariants = {
+    closed: {
+      rotate: 0,
+    },
+    opened: {
+      rotate: 45,
+      backgroundColor: "rgb(255,255,255)",
+    },
+  };
+  const centerVariants = {
+    closed: {
+      opacity: 1,
+    },
+    opened: {
+      opacity: 0,
+    },
+  };
+
+  const bottomVariants = {
+    closed: {
+      rotate: 0,
+    },
+    opened: {
+      rotate: -45,
+      backgroundColor: "rgb(255,255,255)",
+    },
+  };
+
+  const listVariants = {
+    closed: {
+      x: "100vw",
+    },
+    opened: {
+      x: 0,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const listItemVariants = {
+    closed: {
+      x: -10,
+      opacity: 0,
+    },
+    opened: {
+      x: 0,
+      opacity: 1,
+    },
   };
 
   return (
-    <div
-      className=" flex w-full h-full  items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 
-     py-4 md:py-8 
-    "
-    >
-      {/* Menu list non-mobile */}
-      <div className="hidden md:flex  gap-4  xl:text-base w-[40%] justify-start">
-        {links.map((link, index) => (
-          <NavLink link={link} key={index} />
+    <div className="h-full w-full flex items-center  justify-between px-4 sm:px-8 md:px-12 lg:px-20  text-base">
+      {/* LINKS */}
+      <div className="hidden  md:flex gap-4 w-1/3 capitalize">
+        {links.map((link) => (
+          <NavLink link={link} key={link.title} />
         ))}
       </div>
-      {/* Logo */}
-      <div className="md:hidden lg:flex xl:w-[20%] xl:justify-center">
-        <Link href="/">
-          <Image
-            src={Logo}
-            alt="logo"
-            className="bg-white w-16 sm:w-20 md:w-24 lg:w-28 rounded-3xl
-            hover:scale-[1.01] ease
-          "
-          />
+      {/* LOGO */}
+      <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
+        <Link
+          href="/"
+          className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
+        >
+          <div className="bg-white rounded-3xl w-[5rem]">
+            <Image src={logo} alt="logo" />
+          </div>
         </Link>
       </div>
-      {/* icons */}
-      <div className="hidden md:flex flex-row gap-8 w-[40%] justify-end">
+      {/* SOCIAL */}
+      <div className="hidden md:flex justify-end gap-8 w-1/3">
         <Link href="#">
           <FaFacebook className="text-3xl text-blue-500" />
         </Link>
@@ -63,33 +106,48 @@ const Navbar = () => {
           <FaLinkedin className="text-3xl text-blue-300" />
         </Link>
       </div>
-      {/* Responsive menu */}
-      <div className="md:hidden justify-center">
-        {/* Menu Button */}
+      {/* RESPONSIVE MENU */}
+      <div className="md:hidden">
+        {/* MENU BUTTON */}
         <button
-          title="toogle button"
+          title="open"
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
-          onClick={handleClick}
+          onClick={() => setOpen((prev) => !prev)}
         >
-          <div className="w-10 h-1 bg-white rounded" />
-          <div className="w-10 h-1 bg-white rounded" />
-          <div className="w-10 h-1 bg-white rounded" />
+          <motion.div
+            variants={topVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-white rounded origin-left"
+          ></motion.div>
+          <motion.div
+            variants={centerVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-white rounded"
+          ></motion.div>
+          <motion.div
+            variants={bottomVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-white rounded origin-left"
+          ></motion.div>
         </button>
-
-        {/* Menu List for mobile */}
-
+        {/* MENU LIST */}
         {open && (
-          <div
-            className=" absolute top-0 left-0 w-screen h-screen bg-slate-400 text-black
-        flex flex-col items-center justify-center gap-8 text-xl
-        "
+          <motion.div
+            variants={listVariants}
+            initial="closed"
+            animate="opened"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
-            {links.map((link, index) => (
-              <Link href={link.url} key={index} onClick={handleClick}>
-                {link.title}
-              </Link>
+            {links.map((link) => (
+              <motion.div
+                variants={listItemVariants}
+                className=""
+                key={link.title}
+              >
+                <Link href={link.url}>{link.title}</Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { PracticeAreaData } from "@/Data/Data";
 
@@ -5,6 +6,8 @@ import { koho } from "@/components/utilityComponent/font";
 import Link from "next/link";
 import PracticeButton from "@/components/utilityComponent/PracticeButton";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { keyVarients } from "@/Data/Data";
 
 interface PracticeAreaProps {
   params: { id: string }; // Adjust the type accordingly
@@ -69,12 +72,22 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ params }) => {
           <div className="text-black p-2">
             {service &&
               service.services &&
-              Object.keys(service.services).map((key) => (
-                <div key={key} className="text-xl pt-4">
+              Object.keys(service.services).map((key, id) => (
+                <motion.div
+                  key={key}
+                  variants={keyVarients}
+                  initial="initial"
+                  whileInView="whileInView"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={id}
+                  className="text-xl pt-4"
+                >
                   <strong className="text-2xl text-blue-500">{key}:</strong>{" "}
                   <br />
                   <p className="text-black/75">{service.services[key]}</p>
-                </div>
+                </motion.div>
               ))}
           </div>
           {/* mobile navigation */}

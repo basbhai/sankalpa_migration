@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
 import PracticeArea from "../PracticeArea";
 import PracticeButton from "./PracticeButton";
+import { cardVariants } from "@/Data/Data";
+import { motion } from "framer-motion";
 
 interface Props {
   id: number;
@@ -14,7 +17,16 @@ interface Props {
 const AnimatedCard: React.FC<Props> = ({ id, src, alt, desc, title, tags }) => {
   const truncatedDesc = desc.length > 80 ? `${desc.slice(0, 80)}...` : desc;
   return (
-    <div className="card-container h-full flex flex-col justify-between">
+    <motion.div
+      variants={cardVariants}
+      initial="initial"
+      whileInView="whileInView"
+      viewport={{
+        once: true,
+      }}
+      custom={id}
+      className="card-container h-full flex flex-col justify-between"
+    >
       <div className="max-w-sm overflow-hidden shadow-lg shadow-red-300 rounded-xl">
         <img className="w-full" src={src} alt={alt} />
         <div className="px-6 py-4">
@@ -42,7 +54,7 @@ const AnimatedCard: React.FC<Props> = ({ id, src, alt, desc, title, tags }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
