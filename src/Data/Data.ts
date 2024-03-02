@@ -364,7 +364,13 @@ const PracticeAreaData: BankingAndFinance[] = [
   },
 ];
 
-const ContactDetails = {
+interface contact {
+  contactNo: string;
+  EMail: string;
+  Address: String;
+}
+
+const ContactDetails: contact = {
   contactNo: "98xxxxxxxxx",
   EMail: "sankalpaLegal@gmail.com",
   Address: "lorem Ipsum Dolrem",

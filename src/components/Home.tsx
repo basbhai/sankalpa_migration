@@ -6,6 +6,7 @@ import AnimatedCard from "./utilityComponent/AnimatedCard";
 import { GiFallingStar } from "react-icons/gi";
 import { koho } from "./utilityComponent/font";
 import PracticeArea from "./PracticeArea";
+import ContactUs from "@/app/contactUs/page";
 
 const HomePage = () => {
   return (
@@ -114,13 +115,13 @@ const HomePage = () => {
                 />
               </div>
             ))}
-            p
           </div>
         </div>
       </div>
       {/* Practice Area data */}
 
       <PracticeArea />
+      <ContactUs />
     </React.Fragment>
   );
 };
