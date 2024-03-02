@@ -1,15 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
-const ContactForm = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  mobile: string;
+  query: string;
+}
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     mobile: "",
     query: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -17,14 +26,14 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // You can handle form submission logic here
     console.log(formData);
   };
 
   return (
-    <div className="w-full  bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
