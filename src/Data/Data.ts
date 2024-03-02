@@ -379,15 +379,33 @@ const ContactDetails: contact = {
 const cardVariants = {
   initial: {
     opacity: 0,
-    y: -100,
+    y: -10,
   },
   whileInView: (index: number) => ({
     opacity: 1,
 
     y: 0,
     transition: {
+      delay: 0.15 * index,
+      type: "spring",
+      duration: 3,
+    },
+  }),
+};
+
+export const keyVarients = {
+  initial: {
+    opacity: 0,
+    x: -10,
+  },
+  whileInView: (index: number) => ({
+    opacity: 1,
+
+    x: 0,
+    transition: {
       delay: 1 * index,
       type: "spring",
+      stiffness: 1000,
       duration: 3,
     },
   }),

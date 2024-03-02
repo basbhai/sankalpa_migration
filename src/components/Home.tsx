@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Hero from "@/Assets/Hero.jpeg";
 import Image from "next/image";
@@ -7,19 +8,43 @@ import { GiFallingStar } from "react-icons/gi";
 import { koho } from "./utilityComponent/font";
 import PracticeArea from "./PracticeArea";
 import ContactUs from "@/app/contactUs/page";
+import { motion, useScroll, useTransform } from "framer-motion";
+import AnimatedText from "./utilityComponent/AnimatedText";
+import { rightcomVariant, leftComVariant } from "@/Data/Data";
 
 const HomePage = () => {
+  let { scrollYProgress } = useScroll();
+  let y = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+
   return (
     <React.Fragment>
       {/* hero section */}
-      <div className=" w-full h-[calc(100vh-4rem)] bg-bgPic bg-black bg-no-repeat bg-cover flex justify-center lg:bg-contain bg-center relative">
-        HomePage
-      </div>
+      <motion.div
+        style={{ y }}
+        className=" w-full h-[calc(100vh-4rem)] bg-bgPic bg-black bg-no-repeat bg-cover flex justify-start items-center lg:bg-contain bg-center relative"
+      >
+        <div className="w-full lg:w-1/3 h-full flex items-start lg:items-center">
+          <div className="w-full h-full flex items-start pt-16 lg:items-center justify-cente p-4">
+            <AnimatedText
+              text="Good laws lead to the making of better ones; bad ones bring about worse!!! "
+              className={`${koho.className} text-5xl text-blue-500 shadow-5xl shadow-white`}
+            />
+          </div>
+        </div>
+      </motion.div>
       {/* Message  */}
       <div className="w-full  bg-white flex items-center justify-center relative">
         <div className="w-full lg:h-[calc(100vh-4rem)] flex flex-col lg:flex-row bg-gradient-to-br from-white to-yellow-100 mx-4 sm:mx-8 md:mx-12 lg:mx-20 border rounded-md shadow-xl relative  ">
           {/* Image Section */}
-          <div className="w-full lg:w-1/2 h-full flex justify-end items-center">
+          <motion.div
+            variants={leftComVariant}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{
+              once: true,
+            }}
+            className="w-full lg:w-1/2 h-full flex justify-end items-center"
+          >
             <div className="p-14 w-full lg:w-[90%]   ">
               <Image
                 src={Hero}
@@ -27,9 +52,17 @@ const HomePage = () => {
                 className=" lg:rounded-s-full rounded-l-full  shadow-red-800  shadow-2xl border-x-8 border-black lg:mb-8"
               />
             </div>
-          </div>
+          </motion.div>
           {/* short description`` */}
-          <div className="lg:w-1/2 w-full h-full flex  justify-between items-start lg:items-center z-10">
+          <motion.div
+            variants={rightcomVariant}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{
+              once: true,
+            }}
+            className="lg:w-1/2 w-full h-full flex  justify-between items-start lg:items-center z-10"
+          >
             <div className="">{/* if any thing rquired */}</div>
             <div className="flex flex-col  w-fulllg:h-3/4 p-4 bg-transparent lg:bg-white mx-0 lg:mx-8 rounded-2xl shadow-orange-600 shadow-2xl">
               <h1
@@ -49,7 +82,7 @@ const HomePage = () => {
                 and precision.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Book Shape design
           will come from css */}

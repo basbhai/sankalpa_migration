@@ -8,7 +8,7 @@ const PracticeArea = () => {
   return (
     <div className="w-full  bg-white flex items-center justify-center relative">
       <div className="w-full lg:min-h-screen   flex flex-col justify-center  bg-gradient-to-br from-white to-yellow-100 mx-4 sm:mx-8 md:mx-12 lg:mx-20 border rounded-md shadow-xl relative  ">
-        <div className="custom-shape-divider-top-1709286379 -z-2">
+        <div className="custom-shape-divider-top-1709286379 -z-9">
           <svg
             data-name="Layer 1"
             xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,7 @@ const PracticeArea = () => {
             ></path>
           </svg>
         </div>
-        <div className="flex flex-row justify-center w-full my-4  ">
+        <div className="flex flex-row justify-center w-full my-4 z-10  ">
           <GiFallingStar className=" text-blue-500 text-3xl" />
           <h1 className="text-blue-500 text-3xl font-ojuju py-4">
             Area of work
