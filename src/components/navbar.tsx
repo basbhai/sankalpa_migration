@@ -144,7 +144,9 @@ const Navbar = () => {
                 className=""
                 key={link.title}
               >
-                <Link href={link.url}>{link.title}</Link>
+                <Link href={link.url} onClick={() => setOpen((prev) => !prev)}>
+                  {link.title}
+                </Link>
               </motion.div>
             ))}
           </motion.div>
