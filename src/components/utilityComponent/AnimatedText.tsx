@@ -13,7 +13,7 @@ const quote: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      delay: 0.1,
+      delay: 0.5,
       staggerChildren: 0.1,
     },
   },
