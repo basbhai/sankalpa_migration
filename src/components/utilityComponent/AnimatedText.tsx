@@ -14,7 +14,7 @@ const quote: Variants = {
     opacity: 1,
     transition: {
       delay: 0.5,
-      staggerChildren: 0.1,
+      staggerChildren: 0.5,
     },
   },
 };
