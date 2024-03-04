@@ -22,7 +22,7 @@ const quote: Variants = {
 const singleWord: Variants = {
   initial: {
     opacity: 0,
-    y: 50,
+    y: 0,
   },
   animate: {
     opacity: 1,
