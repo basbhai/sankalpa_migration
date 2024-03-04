@@ -403,7 +403,7 @@ export const keyVarients = {
 
     x: 0,
     transition: {
-      delay: 1 * index,
+      delay: 0.1 * index,
       type: "spring",
       stiffness: 1000,
       duration: 3,
