@@ -27,7 +27,7 @@ const HomePage = () => {
           <div className="w-full h-full flex items-start pt-16 lg:items-center justify-cente p-4">
             <AnimatedText
               text="Good laws lead to the making of better ones; bad ones bring about worse!!! "
-              className={`${koho.className} text-5xl text-blue-500 shadow-5xl shadow-white`}
+              className={`${koho.className}  lg:text-5xl text-2xl text-blue-500 shadow-5xl shadow-white`}
             />
           </div>
         </div>
